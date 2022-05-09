@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Encriptador de texto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container d-flex">
+
+        <div class="container-left w-70">
+    
+          <div class="logo">
+            <img src="img/logo.png" alt="logo">
+          </div>
+    
+          <div class="section d-flex flex-column">
+            <div class="section-text w-100">
+              <textarea class="texto" id="texto" placeholder="Ingrese el texto aquí"></textarea>
+            </div>
+    
+            <div class="footer d-flex flex-column w-100">
+              
+              <div class="buttons">
+                <button class="btn-encriptar" id="encriptar">Encriptar</button>
+                <button class="btn-desencriptar" id="desencriptar"><D></D>Desencriptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="container-right d-flex flex-column w-20px" >
+          <div class="div-resultado d-flex flex-column w-100" id="div-resultado" style="display:none">
+            <textarea id="mensaje" style="display:none"></textarea>
+            <div id="resultado" class="resultado" style="width: 100%">fff</div>
+            <button class="btn-copy" id="copy">Copiar</button>
+          </div>
+    
+          <div class="contenido-inicial" id="contenido-inicial" >
+              <img class="img-candado" src="img/img1.jpg" alt="imagen">
+              <h3>No se ha encontrado ningún mensaje.</h3>
+              <p>Ingresa el texto que deseas encriptar o desencriptar</p>
+            </div>
+        </div>
+    
+      </div>
+    
+      <div class="section-footer d-flex w-100">
+        <div class="content-footer d-flex w-70">
+          
+          <p class="author">Encriptador / Desencriptador de textos. Challenge ONE: Guillermo Oscar</p>
+        </div>
+      </div>
+    <script src="js/app.js"></script> 
+</body>
+</html>
+

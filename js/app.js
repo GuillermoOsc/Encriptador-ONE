@@ -1,4 +1,10 @@
-let keys = {
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+let letrasClave = {
+    a : 'ai',
     e : 'enter',
     i : 'imes',
     a : 'ai',
@@ -7,15 +13,15 @@ let keys = {
   }
   
   function mostrarTexto(texto){
-    let divResultado = document.getElementById('div-resultado');
-    let divInicial = document.getElementById('contenido-inicial');
+    let Resultado = document.getElementById('div-resultado');
+    let Inicio = document.getElementById('contenido-inicial');
   
     document.getElementById('mensaje').value = texto;
     document.getElementById('resultado').innerText = texto;
     document.getElementById('texto').value = '';
   
-    divResultado.removeAttribute('style');
-    divInicial.setAttribute('style', 'display: none');
+    Resultado.removeAttribute('style');
+    Inicio.setAttribute('style', 'display: none');
   }
   
   function encriptar(){
@@ -26,9 +32,9 @@ let keys = {
   
       for(let i = 0; i < texto.length; i++){
   
-        for(let ky in keys){
+        for(let ky in letrasClave){
           if(texto[i] == ky){
-            txt = keys[ky];
+            txt = letrasClave [ky];
             break;
           }else{
             txt = texto[i];
@@ -36,11 +42,13 @@ let keys = {
         }
         newTexto = newTexto + txt;
       }
-  
+ 
+      
+
       mostrarTexto(newTexto);
   
     }else{
-      alert('Digíte un texto');
+      alert('Favor, digitar un texto');
     }
   
   }
@@ -54,14 +62,13 @@ let keys = {
     if(texto && texto != ' '){
       while (texto.length > 0){
         let contador = 0;
-        for(let ky in keys){
-          if(keys.hasOwnProperty(ky)){
+        for(let ky in letrasClave){
+          if(letrasClave .hasOwnProperty(ky)){
             if(texto[0] == ky){
-              if(texto.substring(0, keys[ky].length) == keys[ky]){
-                //obtenemos la letra desencriptada;
+              if(texto.substring(0, letrasClave [ky].length) == letrasClave [ky]){
                 letra = ky;
-                //Una vez que hemos encontrado la letra, convertimos en un nuevo texto utilizando la función de javascript (slice)
-                texto = texto.slice(keys[ky].length);
+                
+                texto = texto.slice(letrasClave[ky].length);
   
               }else{
                 letra = texto[0];
@@ -86,7 +93,7 @@ let keys = {
       mostrarTexto(newTexto);
   
     }else{
-      alert('Digíte un texto para continuar');
+      alert('Favor, digitar un texto');
     }
   
   }
@@ -94,16 +101,51 @@ let keys = {
   function copyText() {
       let copyText = document.getElementById("mensaje").value;
       navigator.clipboard.writeText(copyText).then(() => {
-          alert("Texto copiado al portapapeles, precione las teclas CTRL + V para pegar el texto!");
-          //Posicionamos el cursor en el campo de escribir texto.
+          alert("Texto copiado al portapapeles, favor presionar las teclas CTRL + V para pegar el texto.");
           document.getElementById("texto").focus();
       });
     }
   
-  let btnEncriptar = document.getElementById('encriptar');
-  let btnDesencriptar = document.getElementById('desencriptar');
-  let btnCopy = document.getElementById('copy');
+  let botonEncriptar = document.getElementById('encriptar');
+  let botonDesencriptar = document.getElementById('desencriptar');
+  let botonCopyText = document.getElementById('copy');
   
-  btnEncriptar.onclick = encriptar;
-  btnDesencriptar.onclick = desencriptar;
-  btnCopy.onclick = copyText;
+  botonEncriptar.onclick = encriptar;
+  botonDesencriptar.onclick = desencriptar;
+  botonCopyText.onclick = copyText;
+
+
+
+
+  
+  // -----------------------  Función para omitir tíldes --------------
+
+
+//   var omitirTildes = true;
+  
+//   function tildes(texto) {
+//     var tildes = ["á","é","í","ó","ú"];
+
+//     for (i=0; i < tildes.length; i++) {
+//         if(texto.includes(tildes[i])){
+//            alert("No se admiten tildes");
+//            omitirTildes = false;
+//         };
+//     };
+
+//     return omitirTildes;	
+// }
+
+  
+  
+  
+// // ------------- Función mayusculas -------------------------------------------------------
+
+
+// function mayusculas(texto) {
+//     if(texto != texto.toLowerCase()){
+//        alert("Solo se permiten letras minúsculas.");
+//          letrasMinusc = false;
+//     };
+//     return letrasMinusc;
+// }
